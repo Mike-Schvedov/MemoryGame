@@ -10,9 +10,8 @@
                 android:angle="45"/>
             <stroke
                 android:width="10px"
-                android:color="#9C27B0" />
-            <corners
-                android:radius="40dp"/>
+                android:color="#009688" />
+
         </shape>
     </item>
 
@@ -23,8 +22,7 @@
             <stroke
                 android:width="10px"
                 android:color="#1C1B1B" />
-            <corners
-                android:radius="40dp"/>
+
         </shape>
     </item>
 </selector>

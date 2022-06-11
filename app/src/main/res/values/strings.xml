@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">MemoryGame</string>
     <string name="new_game">New Game</string>
+    <string name="timer_placeholder">00:00</string>
+    <string name="level">Level:</string>
+    <string name="score">Score:</string>
+    <string name="highscore">HighScore:</string>
 </resources>

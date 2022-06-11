@@ -5,7 +5,7 @@ class Card(
     var id: Int,
     var isFaceUp: Boolean = false,
     var isMatched: Boolean = false,
-    var cardPicture: Int
+    var cardContent: String
 ){
     override fun toString(): String {
         return "ID:{$id} uniqueId:{$uniqueId} isFaceUp:{$isFaceUp} isMatched:{$isMatched}\n"

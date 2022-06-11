@@ -13,7 +13,7 @@ class MemoryGame(private var cards: MutableList<Card> = mutableListOf()) {
     }
 
     // creating a new deck/list of cards
-    fun startGame(numberOfCards: Int): MutableList<Card> {
+    fun startGame(numberOfCards: Int, listOfContent: List<String>): MutableList<Card> {
         //TODO check if number is even
 
         cards.clear()
@@ -22,17 +22,6 @@ class MemoryGame(private var cards: MutableList<Card> = mutableListOf()) {
         var idGiver = 0
         var uniqueIdCounter = 0
 
-        val arrOfPictures = listOf(
-            R.drawable.card1,
-            R.drawable.card2,
-            R.drawable.card3,
-            R.drawable.card4,
-            R.drawable.card5,
-            R.drawable.card6,
-            R.drawable.card7,
-            R.drawable.card8
-        )
-
         for (i in 0 until numberOfCards) {
             cards.add(
                 Card(
@@ -40,7 +29,7 @@ class MemoryGame(private var cards: MutableList<Card> = mutableListOf()) {
                     idGiver,
                     false,
                     false,
-                    arrOfPictures[idGiver]
+                    listOfContent[uniqueIdCounter]
                 )
             )
             idCounter++
@@ -54,20 +43,15 @@ class MemoryGame(private var cards: MutableList<Card> = mutableListOf()) {
     }
 
     fun checkIfMatched(): MutableList<Card> {
-        println("---------------------")
-        println("check if matched")
         val cardBox: MutableList<Card> = mutableListOf()
         // we find all cards that are facedUP
         cards.forEach { card ->
             if (card.isFaceUp) cardBox.add(card)
         }
-        println("this is the card box: $cardBox")
         // we check if we have two faced up cards
         if (cardBox.size == 2) {
-            println("cardbox size is 2")
             // if those cards are matching
             if (cardBox[0].id == cardBox[1].id) {
-                println("the cards are matching")
                 cardBox[0].apply {
                     isMatched = true
                     isFaceUp = false
@@ -78,7 +62,6 @@ class MemoryGame(private var cards: MutableList<Card> = mutableListOf()) {
                 }
                 return cards
             } else { // if they are not matching
-                println("the cards are not matching")
                 cardBox[0].apply {
                     isFaceUp = false
                 }
@@ -87,9 +70,7 @@ class MemoryGame(private var cards: MutableList<Card> = mutableListOf()) {
                 }
                 return cardBox
             }
-
         }// if we don't have two faceup cards
-        println("cardbox size is not 2")
         return cards
     }
 
